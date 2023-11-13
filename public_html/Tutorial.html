@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--Create head section-->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Felix Hong">
+    <meta name="description" content="MySQL">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+        rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+        crossorigin="anonymous">
+    <title>MySQL</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<!--Create body section-->
+
+<body class="container-fluid">
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary mb-4">
+            <!-- House icon on the left -->
+            <a href="Home.html" id="logo" class="navbar-brand d-flex align-items-center">
+                <img src="HomeIcon.png" alt="logo">
+            </a>
+        
+            <!-- Spacer to push the buttons to the right -->
+            <div class="ms-auto d-flex align-items-center">
+                <!-- Sign in/sign out buttons -->
+                <input type="button" id="loginBtn" class="btn btn-primary me-2" value="Log In" style="display: block;" onclick="LogIn()">
+                <input type="button" id="signupBtn" class="btn btn-primary me-2" value="Sign Up" style="display: block;" onclick="SignUp()">
+                <input type="button" id="logoutBtn" class="btn btn-primary me-2" value="Log Out" style="display: none;" onclick="LogoutAccount()">
+            </div>
+        </nav>
+
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="d-flex mx-auto justify-content-center align-items-center">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#expand"
+                    aria-controls="expand" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="expand">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav_item">
+                            <a href="Home.html" class="mx-3" style="text-decoration:none;" id="homeLogIn">
+                                <button class="btn btn-dark me-2 d-flex align-items-center">Home</button>
+                            </a>
+                        </li>
+                        <li class="nav_item">
+                            <a href="Tutorial.html" class="mx-3" style="text-decoration:none;" id="tutorialLogIn">
+                                <button class="btn btn-dark me-2 d-flex align-items-center">Tutorial</button>
+                            </a>
+                        </li>
+                        <li class="nav_item">
+                            <a href="Comment.html" class="mx-3" style="text-decoration:none;" id="commentLogIn">
+                                <button class="btn btn-dark me-2 d-flex align-items-center">Comment</button>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class = "mb-4">Using MySQL with Node.js: A Beginner's Guide</h1>
+
+        <div class="step">
+            <h2>Step 1: Install Node.js and MySQL</h2>
+            <p>Before we start, make sure you have Node.js and MySQL installed on your system.</p>
+        </div>
+        
+        <div class="step">
+            <h2>Step 2: Create a New Node.js Project</h2>
+            <p>Create a new Node.js project by running the following command in your terminal:</p>
+            <code class="code">
+            npm init -y
+            </code>
+        </div>
+        
+        <div class="step">
+            <h2>Step 3: Install MySQL Node.js Package</h2>
+            <p>Install the MySQL Node.js package by running the following command in your project directory:</p>
+            <code class="code">
+            npm install mysql
+            </code>
+        </div>
+        
+        <div class="step">
+            <h2>Step 4: Setting Up MySQL Connection</h2>
+            <p>Setup a connection to MySQL database by creating a file named "db.js" and adding the following code:</p>
+            <code class="code">
+            const mysql = require('mysql');
+            const connection = mysql.createConnection({
+                host: 'localhost',
+                user: 'root',
+                password: 'yourpassword',
+                database: 'yourdatabase'
+            });
+        
+            connection.connect((error) => {
+                if (error) {
+                  console.error('Error:', error);
+                }
+              });
+            </code>
+        </div>
+        
+        <div class="step">
+            <h2>Step 5: Running Queries</h2>
+            <p>You can now run MySQL queries in your Node.js application. Create a file named "index.js" and add the following code to query data from your MySQL database:</p>
+            <code class="code">
+            connection.query('SELECT * FROM yourtable', (err, results) => {
+                if(err) throw err;
+                console.log(results);
+            });
+        
+            connection.end();
+            </code>
+        </div>
+        
+        <div class="step">
+            <h2>Step 6: Run Your Node.js Application</h2>
+            <p>Run your Node.js application by using the following command in your terminal:</p>
+            <code class="code mb-3">
+            node index.js
+            </code>
+            <p>This will display the results of your query in the console.</p>
+        </div>
+    </main>
+
+    <footer class="text-center">
+        <p>&copy; 2023 Felix Hong</p>
+        <p id="lastUpdate">Last update: 1 Sept, 2023</p>
+        <p>Contact via <a href="mailto:felixhong0720@gmail.com">felixhong0720@gmail.com</a></p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <!--End body section-->
+</body>
+<!--End html section-->
+
+</html>
